@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-danger shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -78,13 +78,78 @@
             </div>
         </nav>
 
+        <!--second navbar-->
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm navbar-hover">
+
+
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHover"
+                aria-controls="navbarDD" aria-expanded="false" aria-label="Navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarHover">
+                <ul class="container-fluid navbar-nav">
+                    @for($i=0;$i<6;$i++)
+        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href=""
+                            data-toggle="dropdown_remove_dropdown_class_for_clickable_link" aria-haspopup="true"
+                            aria-expanded="false">
+                            Category(Electronics)
+                        </a>
+        
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item dropdown-toggle" href="">Subcategory(Computer)</a>
+        
+                                <ul class="dropdown-menu">
+        
+                                    <li>
+                                        <a class="dropdown-item" href="">childcategory(Dell laptop)
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+        
+                    </li>
+                    @endfor
+        
+                </ul>
+            </div>
+        </nav>
+        <!--end second navbar-->
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+    <style>
+        /* .navbar li a {
+            color: white !important;
+        } */
+        
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+        
+        /* hover dropdown menus */
+        @media only screen and (max-width: 991px) {
+        .navbar-hover .show > .dropdown-toggle::after{
+        transform: rotate(-90deg);
+        }
+        }
+        @media only screen and (min-width: 492px) {
+        
+        .navbar-hover .collapse ul li{position:relative;}
+        .navbar-hover .collapse ul li:hover> ul{display:block}
+        .navbar-hover .collapse ul ul{position:absolute;top:100%;left:0;min-width:250px;display:none}
+        .navbar-hover .collapse ul ul ul{position:absolute;top:0;left:100%;min-width:250px;display:none}
+        
+        </style>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
