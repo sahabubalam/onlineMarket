@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\ChildcategoryController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\AdvertisementController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +42,11 @@ Route::group(['prefix'=>'auth'],function(){
     
 });
 Route::get('/', [MenuController::class, 'menu']);
+//ads
+Route::get('/ads/create', [AdvertisementController::class, 'create']);
+Route::post('/ads/store', [AdvertisementController::class, 'store'])->middleware('auth')->name('ads.store');
+
+
 
 
 

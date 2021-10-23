@@ -10,7 +10,7 @@ class MenuController extends Controller
     public function menu()
     {
         $menus=Category::with('subcategories')->get();
-       
+     
         return view('index',compact('menus'));
     }
     

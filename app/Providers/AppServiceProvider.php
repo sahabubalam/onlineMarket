@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::composer(['*'],function($view){
+            //app er age slash diye ber hote hobe
+            $menus=\App\Models\Category::with('subcategories')->get();
+            $view->with('menus',$menus);
+        });
     }
 }
