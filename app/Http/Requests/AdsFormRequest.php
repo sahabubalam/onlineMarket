@@ -28,13 +28,13 @@ class AdsFormRequest extends FormRequest
             'first_image'=>'required|mimes:png,jpg,jpeg',
             'second_image'=>'required|mimes:png,jpg,jpeg',
             'name'=>'required|min:3|max:60',
-            'description'=>'required|min3',
+            'description'=>'required',
             'price'=>"required|regex:/^\d+(\.\d{1,2})?$/",
             'price_status'=>'required',
             'category_id'=>'required',
             'product_condition'=>'required',
             'country_id'=>'required',
-            'phone_number'=>'numeric|size:10',
+            'phone_number'=>'numeric',
 
         ];
     }

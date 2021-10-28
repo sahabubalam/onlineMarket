@@ -43,9 +43,9 @@ Route::group(['prefix'=>'auth'],function(){
 });
 Route::get('/', [MenuController::class, 'menu']);
 //ads
-Route::get('/ads/create', [AdvertisementController::class, 'create']);
+Route::get('/ads/create', [AdvertisementController::class, 'create'])->middleware('auth');
 Route::post('/ads/store', [AdvertisementController::class, 'store'])->middleware('auth')->name('ads.store');
-
+Route::get('/ads', [AdvertisementController::class, 'index'])->middleware('auth');
 
 
 
